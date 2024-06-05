@@ -1,26 +1,19 @@
-import globals from 'globals'
-import pluginJs from '@eslint/js'
-import pluginVue from 'eslint-plugin-vue'
-
-export default [
-  {
-    languageOptions: { globals: globals.browser },
-    files: ['src/**/*.{js,mjs,vue,cjs,cy.js}'],
-    ignores: [
-      'node_modules',
-      'dist',
-      'build',
-      'public',
-      '.gitignore',
-      'cypress',
-      '.eslintrc.cjs',
-      'example.cy.js'
-    ],
-    rules: {
-      semi: 'error'
+export default {
+  files: ['**/*.js'],
+  ignores: ['node_modules/**', 'dist/**', 'build/**', 'public/**', '.gitignore', 'cypress/**'],
+  languageOptions: {
+    globals: {
+      // Node.js globals
+      require: 'readonly',
+      module: 'readonly',
+      // Cypress globals
+      describe: 'readonly',
+      it: 'readonly',
+      cy: 'readonly',
+      expect: 'readonly'
     }
   },
-
-  pluginJs.configs.recommended,
-  ...pluginVue.configs['flat/essential']
-]
+  rules: {
+    semi: 'error'
+  }
+};
