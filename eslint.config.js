@@ -1,5 +1,5 @@
 export default {
-  files: ['**/*.js'],
+  files: ['**/*.js', '**/*.vue', '**/*.mjs'],
   ignores: ['node_modules/**', 'dist/**', 'build/**', 'public/**', '.gitignore', 'cypress/**'],
   languageOptions: {
     globals: {
@@ -16,4 +16,4 @@ export default {
   rules: {
     semi: 'error'
   }
-};
+}
